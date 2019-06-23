@@ -1,0 +1,15 @@
+run("HeLa Cells (1.3M, 48-bit RGB)");
+run("Split Channels");
+setAutoThreshold("Default dark");
+//run("Threshold...");
+setAutoThreshold("MaxEntropy dark");
+setOption("BlackBackground", true);
+run("Convert to Mask");
+run("Close");
+run("Set Measurements...", "area mean center integrated display redirect=None decimal=3");
+run("Analyze Particles...", "display summarize add");
+selectWindow("C2-hela-cells.tif");
+close();
+selectWindow("C1-hela-cells.tif");
+close();
+selectWindow("C3-hela-cells.tif");
